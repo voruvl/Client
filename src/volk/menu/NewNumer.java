@@ -22,7 +22,7 @@ public class NewNumer extends AMenu {
 			numer.setPrice(Functions.getInteger());
 			System.out.println("Enter count capacity new numer");
 			numer.setCapacity(Functions.getInteger());
-			numer.setState(1);
+//			numer.setState(1);
 			connect.sendObject(INSERT);
 			connect.sendObject(numer);
 		

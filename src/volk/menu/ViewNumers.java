@@ -20,12 +20,7 @@ public class ViewNumers extends AMenu {
 		connect.sendObject(new Numer());
 		List<Numer> numers = (List<Numer>) connect.receiveObject();
 		for (Numer numer : numers) {
-			connect.getConnect();
-			connect.sendObject(new Integer(SELECTPK));
-			StateNumer state=new StateNumer();
-			state.setId(numer.getState());
-			connect.sendObject(state);
-			System.out.println(numer+" State " +((StateNumer)connect.receiveObject()).getNameState());
+			System.out.println(numer);
 		}
 	}
 }
