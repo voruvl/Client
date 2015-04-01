@@ -38,7 +38,6 @@ public class CreateMainMenu {
 					System.out.println("-----------------------------");
 					int numMenu = 1;
 					if (menu.getSize() == 0) {
-						connect.getConnect();
 						menu.callMenu();
 						menu = menu.getParent();
 					}

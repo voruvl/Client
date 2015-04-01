@@ -4,6 +4,7 @@ import java.util.List;
 
 import volk.client.Connector;
 import volk.domain.Guest;
+import volk.query.QueryGuest;
 
 public class ViewGuests extends AMenu {
 
@@ -15,9 +16,8 @@ public class ViewGuests extends AMenu {
 
 	@Override
 	public void callMenu() {
-		connect.sendObject(new Integer(SELECT));
-		connect.sendObject(new Guest());
-		List<Guest> guests = (List<Guest>) connect.receiveObject();
+		
+		List<Guest> guests = new QueryGuest(connect).getListGuests();
 		for (Guest guest : guests) {
 			System.out.println(guest);
 		}

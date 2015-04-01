@@ -1,10 +1,8 @@
 package volk.menu;
 
-import java.util.List;
-
 import volk.client.Connector;
 import volk.domain.Guest;
-import volk.util.Functions;
+import volk.query.QueryGuest;
 
 
 public class DeleteGuest extends AMenu {
@@ -15,17 +13,8 @@ public class DeleteGuest extends AMenu {
 		
 	}
 	public void callMenu() {
-		connect.sendObject(new Integer(SELECT));
-		connect.sendObject(new Guest());
-		List<Guest> guests = (List<Guest>) connect.receiveObject();
-
-		for (Guest guest : guests) {
-			System.out.println(guest);
-		}
-		Guest guest = new Guest();
-		System.out.println("Enter guest id");
-		guest.setId(Functions.getInteger());
 		
+		Guest guest = new QueryGuest(connect).getGuest();
 		connect.getConnect();
 		connect.sendObject(DELETE);
 		connect.sendObject(guest);

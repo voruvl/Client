@@ -1,10 +1,8 @@
 package volk.menu;
 
-import java.util.List;
-
 import volk.client.Connector;
 import volk.domain.Guest;
-import volk.domain.Numer;
+import volk.query.QueryNumer;
 import volk.util.Functions;
 
 public class NewGuest extends AMenu {
@@ -18,12 +16,6 @@ public class NewGuest extends AMenu {
 	@Override
 	public void callMenu() {
 
-		connect.sendObject(new Integer(SELECT));
-		connect.sendObject(new Numer());
-		List<Numer> numers = (List<Numer>) connect.receiveObject();
-		for (Numer numer : numers) {
-			System.out.println(numer);
-		}
 		Guest guest = new Guest();
 		System.out.println("Enter name new guest");
 		guest.setName(Functions.getString());
@@ -32,7 +24,7 @@ public class NewGuest extends AMenu {
 		System.out.println("Enter date output for new guest");
 		guest.setDateOut(Functions.getDate());
 		System.out.println("Selected id numer for new guest");
-		guest.setNumer(Functions.getInteger());
+		guest.setNumer(new QueryNumer(connect).getNumer());
 		connect.getConnect();
 		connect.sendObject(INSERT);
 		connect.sendObject(guest);

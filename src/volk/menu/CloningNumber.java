@@ -1,9 +1,8 @@
 package volk.menu;
 
-import java.util.List;
-
 import volk.client.Connector;
 import volk.domain.Numer;
+import volk.query.QueryNumer;
 import volk.util.Functions;
 
 public class CloningNumber extends AMenu {
@@ -16,26 +15,14 @@ public class CloningNumber extends AMenu {
 
 	@Override
 	public void callMenu() {
-		connect.sendObject(new Integer(SELECT));
-		connect.sendObject(new Numer());
-		List<Numer> numers = (List<Numer>) connect.receiveObject();
-		for (Numer numer : numers) {
-			System.out.println(numer);
-		}
-		Numer numerNew = new Numer();
-		System.out.println("Select id numer  for cloning ");
-		numerNew.setId(Functions.getInteger());
-		System.out.println("Enter count cloning");
-		int count = Functions.getInteger();
-
-		connect.getConnect();
-		connect.sendObject(SELECTPK);
-		connect.sendObject(numerNew);
-		numerNew=(Numer)connect.receiveObject();
+		Numer numer = new QueryNumer(connect).getNumer();
+		
+		System.out.println("Enter count cloning numer");
+		int count=Functions.getInteger();
 		for (int i = 0; i < count; i++) {
 			connect.getConnect();
 			connect.sendObject(INSERT);
-			connect.sendObject(numerNew);
+			connect.sendObject(numer);
 		}
 	}
 }

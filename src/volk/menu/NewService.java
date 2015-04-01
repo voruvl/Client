@@ -19,6 +19,7 @@ public class NewService extends AMenu {
 		service.setNameService(Functions.getString());
 		System.out.println("Enter price");
 		service.setPrice(Functions.getInteger());
+		connect.getConnect();
 		connect.sendObject(INSERT);
 		connect.sendObject(service);
 	}
