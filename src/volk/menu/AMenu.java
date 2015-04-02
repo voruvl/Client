@@ -16,7 +16,7 @@ public abstract class AMenu {
 	protected static final Integer UPDATE=3;
 	protected static final Integer DELETE=4;
 	protected static final Integer SELECTPK = 5;
-	protected static final Integer SELECTPKLIST = 6;
+	
 	public AMenu(AMenu parentMenu,Connector connect) {
 		this.connect=connect;
 		menuParent = parentMenu;
