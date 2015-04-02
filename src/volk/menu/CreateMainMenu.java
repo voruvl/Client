@@ -25,17 +25,18 @@ public class CreateMainMenu {
 		new NewGuest(menuGuest, connect);
 		new NewService(menuService, connect);
 		new DeleteService(menuService, connect);
+		new ServicesInGuest(menuGuest, connect);
 		new ViewServicesInGuest(menuGuest, connect);
+		new DeleteServiceFromGuest(menuGuest, connect);
 		new DeleteGuest(menuGuest, connect);
 		new DeleteNumer(menuNumer, connect);
-		new ServicesInGuest(menuGuest, connect);
 		new ServiceAddGuest(menuGuest, connect);
 		AMenu menu = root;
 		while (true) {
 			boolean check = true;
 			while (check) {
 				try {
-					
+
 					System.out.println(menu.name);
 					System.out.println("-----------------------------");
 					int numMenu = 1;
@@ -44,16 +45,16 @@ public class CreateMainMenu {
 						System.out.println("------------------------------");
 						menu = menu.getParent();
 					}
-					
+
 					for (AMenu menuItem : (ArrayList<AMenu>) menu.getListMenu()) {
 
 						System.out.println(numMenu++ + ". " + menuItem.name);
 					}
-					
+
 					if ((menu.getParent() != null) && (menu.getSize() != 0))
 						System.out.println(numMenu + ". " + "<-EXIT "
 								+ menu.name.toUpperCase());
-					
+
 					int select = Functions.getInteger();
 
 					if (select == (menu.getListMenu().size() + 1)) {

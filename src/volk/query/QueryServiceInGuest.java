@@ -22,6 +22,15 @@ public class QueryServiceInGuest extends AQuery{
 		connect.sendObject(s);
 		return (List<ServiceInGuest>) connect.receiveObject();
 	}
+	public ServiceInGuest getListServiceInGuests(ServiceInGuest servGuest) {
+		connect.getConnect();
+		connect.sendObject(SELECTPK);
+		ServiceInGuest s=new ServiceInGuest();
+		s.setIdGuest(servGuest.getIdGuest());
+		s.setIdService(servGuest.getIdService());
+		connect.sendObject(s);
+		return (ServiceInGuest)connect.receiveObject();
+	}
 	public List<ServiceInGuest> getListServiceInGuests() {
 		connect.getConnect();
 		connect.sendObject(SELECT);
@@ -31,6 +40,11 @@ public class QueryServiceInGuest extends AQuery{
 	public void insertServiceInGuests(ServiceInGuest serviceInGuest) {
 		connect.getConnect();
 		connect.sendObject(INSERT);
+		connect.sendObject(serviceInGuest);
+	}
+	public void deleteServiceInGuests(ServiceInGuest serviceInGuest) {
+		connect.getConnect();
+		connect.sendObject(DELETE);
 		connect.sendObject(serviceInGuest);
 	}
 

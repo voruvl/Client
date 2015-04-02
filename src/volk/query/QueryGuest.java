@@ -4,6 +4,7 @@ import java.util.List;
 
 import volk.client.Connector;
 import volk.domain.Guest;
+import volk.domain.Numer;
 import volk.util.Functions;
 
 public class QueryGuest extends AQuery {
@@ -34,12 +35,23 @@ public class QueryGuest extends AQuery {
 		connect.sendObject(new Guest());
 		return (List<Guest>) connect.receiveObject();
 	}
-	public void deleteGuest(Guest guest){
+
+	public void deleteGuest(Guest guest) {
 		connect.getConnect();
 		connect.sendObject(DELETE);
 		connect.sendObject(guest);
 	}
-	public void insertGuest(Guest guest){
+
+	public void deleteGuest(Numer numer) {
+		for (Guest guest : getListGuests()) {
+			if (guest.getNumer().getId() == (numer.getId())) {
+				deleteGuest(guest);
+			}
+		}
+
+	}
+
+	public void insertGuest(Guest guest) {
 		connect.getConnect();
 		connect.sendObject(INSERT);
 		connect.sendObject(guest);
