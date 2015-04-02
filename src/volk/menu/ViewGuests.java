@@ -16,7 +16,6 @@ public class ViewGuests extends AMenu {
 
 	@Override
 	public void callMenu() {
-		
 		List<Guest> guests = new QueryGuest(connect).getListGuests();
 		for (Guest guest : guests) {
 			System.out.println(guest);

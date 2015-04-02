@@ -34,4 +34,14 @@ public class QueryGuest extends AQuery {
 		connect.sendObject(new Guest());
 		return (List<Guest>) connect.receiveObject();
 	}
+	public void deleteGuest(Guest guest){
+		connect.getConnect();
+		connect.sendObject(DELETE);
+		connect.sendObject(guest);
+	}
+	public void insertGuest(Guest guest){
+		connect.getConnect();
+		connect.sendObject(INSERT);
+		connect.sendObject(guest);
+	}
 }

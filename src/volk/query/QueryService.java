@@ -45,4 +45,15 @@ public class QueryService extends AQuery {
 		connect.sendObject(new Service());
 		return (List<Service>) connect.receiveObject();
 	}
+
+	public void deleteService(Service service) {
+		connect.getConnect();
+		connect.sendObject(DELETE);
+		connect.sendObject(service);
+	}
+	public void insertService(Service service) {
+		connect.getConnect();
+		connect.sendObject(INSERT);
+		connect.sendObject(service);
+	}
 }

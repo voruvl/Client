@@ -15,9 +15,7 @@ public class DeleteGuest extends AMenu {
 	public void callMenu() {
 		
 		Guest guest = new QueryGuest(connect).getGuest();
-		connect.getConnect();
-		connect.sendObject(DELETE);
-		connect.sendObject(guest);
+		new QueryGuest(connect).deleteGuest(guest);
 
 	}
 }

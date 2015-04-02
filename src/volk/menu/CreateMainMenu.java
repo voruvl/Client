@@ -26,6 +26,7 @@ public class CreateMainMenu {
 		new NewService(menuService, connect);
 		new DeleteService(menuService, connect);
 		new DeleteGuest(menuGuest, connect);
+		new DeleteNumer(menuNumer, connect);
 		new ServicesInGuest(menuGuest, connect);
 		new ServiceAddGuest(menuGuest, connect);
 		AMenu menu = root;

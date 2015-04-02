@@ -2,6 +2,7 @@ package volk.menu;
 
 import volk.client.Connector;
 import volk.domain.Guest;
+import volk.query.QueryGuest;
 import volk.query.QueryNumer;
 import volk.util.Functions;
 
@@ -25,9 +26,7 @@ public class NewGuest extends AMenu {
 		guest.setDateOut(Functions.getDate());
 		System.out.println("Selected id numer for new guest");
 		guest.setNumer(new QueryNumer(connect).getNumer());
-		connect.getConnect();
-		connect.sendObject(INSERT);
-		connect.sendObject(guest);
+		new QueryGuest(connect).insertGuest(guest);
 	}
 
 }

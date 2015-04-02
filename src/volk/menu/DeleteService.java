@@ -15,8 +15,6 @@ public class DeleteService extends AMenu {
 	@Override
 	public void callMenu() {
 		Service service=new QueryService(connect).getService();
-		connect.getConnect();
-		connect.sendObject(DELETE);
-		connect.sendObject(service);
+		new QueryService(connect).deleteService(service);
 	}
 }

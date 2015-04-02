@@ -19,9 +19,7 @@ public class UpdateStateNumer extends AMenu {
 		Numer numer=new QueryNumer(connect).getNumer();
 		if (numer != null) {
 			numer.setState(new QueryStateNumer(connect).getStateNumer());
-			connect.getConnect();
-			connect.sendObject(new Integer(UPDATE));
-			connect.sendObject(numer);
+			new QueryNumer(connect).updateNumer(numer);
 
 		} else {
 			System.out.println("Entering value failed");

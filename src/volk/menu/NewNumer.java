@@ -2,6 +2,7 @@ package volk.menu;
 
 import volk.client.Connector;
 import volk.domain.Numer;
+import volk.query.QueryNumer;
 import volk.query.QueryStateNumer;
 import volk.util.Functions;
 
@@ -24,9 +25,7 @@ public class NewNumer extends AMenu {
 		System.out.println("Enter count capacity new numer");
 		numer.setCapacity(Functions.getInteger());
 		numer.setState(new QueryStateNumer(connect).getStateNumer());
-		connect.getConnect();
-		connect.sendObject(INSERT);
-		connect.sendObject(numer);
+		new QueryNumer(connect).insertNumer(numer);
 
 	}
 

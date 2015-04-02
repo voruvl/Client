@@ -6,6 +6,7 @@ import volk.domain.Service;
 import volk.domain.ServiceInGuest;
 import volk.query.QueryGuest;
 import volk.query.QueryService;
+import volk.query.QueryServiceInGuest;
 
 public class ServiceAddGuest extends AMenu {
 
@@ -24,8 +25,6 @@ public class ServiceAddGuest extends AMenu {
 		servInGuest.setIdGuest(guest);
 		Service service = new QueryService(connect).getService();
 		servInGuest.setIdService(service);
-		connect.getConnect();
-		connect.sendObject(INSERT);
-		connect.sendObject(servInGuest);
+		new QueryServiceInGuest(connect).insertServiceInGuests(servInGuest);
 	}
 }

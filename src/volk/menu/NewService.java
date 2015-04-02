@@ -2,6 +2,7 @@ package volk.menu;
 
 import volk.client.Connector;
 import volk.domain.Service;
+import volk.query.QueryService;
 import volk.util.Functions;
 
 public class NewService extends AMenu {
@@ -19,9 +20,7 @@ public class NewService extends AMenu {
 		service.setNameService(Functions.getString());
 		System.out.println("Enter price");
 		service.setPrice(Functions.getInteger());
-		connect.getConnect();
-		connect.sendObject(INSERT);
-		connect.sendObject(service);
+		new QueryService(connect).insertService(service);
 	}
 
 }

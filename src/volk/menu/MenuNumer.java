@@ -12,7 +12,6 @@ public class MenuNumer extends AMenu {
 	@Override
 	public void callMenu() {
 		getName();
-
 	}
 
 }

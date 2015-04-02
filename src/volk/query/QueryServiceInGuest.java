@@ -4,6 +4,7 @@ import java.util.List;
 
 import volk.client.Connector;
 import volk.domain.Guest;
+import volk.domain.Service;
 import volk.domain.ServiceInGuest;
 
 public class QueryServiceInGuest extends AQuery{
@@ -20,5 +21,10 @@ public class QueryServiceInGuest extends AQuery{
 		connect.sendObject(s);
 		return (List<ServiceInGuest>) connect.receiveObject();
 	}	
+	public void insertServiceInGuests(ServiceInGuest serviceInGuest) {
+		connect.getConnect();
+		connect.sendObject(INSERT);
+		connect.sendObject(serviceInGuest);
+	}
 
 }
