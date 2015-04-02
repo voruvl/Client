@@ -29,7 +29,7 @@ public class ServicesInGuest extends AMenu {
 			System.out.println(serviceInGuest.getIdService());
 		}
 		Guest guestFind = new Guest();
-		// guestFind.setId(idGuest);
+//	 guestFind.setId(idGuest);
 		connect.getConnect();
 		connect.sendObject(SELECTPK);
 		connect.sendObject(guestFind);
