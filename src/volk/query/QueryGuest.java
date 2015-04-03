@@ -42,6 +42,16 @@ public class QueryGuest extends AQuery {
 		connect.sendObject(guest);
 	}
 
+	public Guest getGuest(Numer numer) {
+		Guest guestFind = null;
+		for (Guest guest : getListGuests()) {
+			if (guest.getNumer().getId() == (numer.getId())) {
+				guestFind = guest;
+			}
+		}
+		return guestFind;
+	}
+
 	public void deleteGuest(Numer numer) {
 		for (Guest guest : getListGuests()) {
 			if (guest.getNumer().getId() == (numer.getId())) {

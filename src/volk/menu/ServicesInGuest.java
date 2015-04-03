@@ -3,12 +3,8 @@ package volk.menu;
 import java.util.List;
 
 import volk.client.Connector;
-import volk.domain.Guest;
-import volk.domain.Service;
 import volk.domain.ServiceInGuest;
-import volk.query.QueryGuest;
 import volk.query.QueryServiceInGuest;
-import volk.util.Functions;
 
 public class ServicesInGuest extends AMenu {
 

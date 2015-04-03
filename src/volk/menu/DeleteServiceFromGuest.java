@@ -35,7 +35,7 @@ public class DeleteServiceFromGuest extends AMenu {
 		servInGuest.setIdGuest(guest);
 		Service service=new QueryService(connect).getService();
 		servInGuest.setIdService(service);
-		servInGuest=new QueryServiceInGuest(connect).getListServiceInGuests(servInGuest);
+//		servInGuest=new QueryServiceInGuest(connect).getListServiceInGuests(servInGuest);
 		
 		new QueryServiceInGuest(connect).deleteServiceInGuests(servInGuest);
 	}

@@ -3,7 +3,6 @@ package volk.query;
 import java.util.List;
 
 import volk.client.Connector;
-import volk.domain.Numer;
 import volk.domain.StateNumer;
 import volk.util.Functions;
 
